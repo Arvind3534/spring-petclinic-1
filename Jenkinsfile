@@ -7,8 +7,8 @@ pipeline {
           }
         }
         stage('Build') {
-            steps {
-                sh 'mvn clean package'
+          steps {
+            sh "'${mavenHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
                 junit '**/target/surefire-reports/*.xml'
             }
         }
